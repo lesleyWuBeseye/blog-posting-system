@@ -1,24 +1,8 @@
-# README
+# Blog Posting System 📝
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is the blog posting system, which is Beseye AI Cloud team training.
 
-Things you may want to cover:
+## Setup
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+- ruby version: 2.6.3
+- rails version: 5.2.6
