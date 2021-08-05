@@ -1,6 +1,6 @@
 <h4 class="title"><%= @board.name.upcase %> - Post List</h4>
 
-<%= link_to 'Board List', boards_path, type: 'button', class: 'btn btn-secondary create-btn' %>
+<%= link_to 'Back', boards_path, type: 'button', class: 'btn btn-secondary create-btn' %>
 
 <div class="row row-cols-1 row-cols-md-3 g-4">
   <% @posts.each do |post| %>
