@@ -2,7 +2,7 @@
 
 # Controll users action
 class UsersController < ApplicationController
-  before_action :find_user, only: %i[edit update]
+  before_action :find_user, only: %i[edit update destroy]
 
   def index
     @users = User.all.order(:created_at)
@@ -32,6 +32,11 @@ class UsersController < ApplicationController
       # TODO: handle error message flash
       render :edit
     end
+  end
+
+  def destroy
+    @user.destroy if @user.present?
+    redirect_to users_path, notice: 'User successfully deleted'
   end
 
   private
