@@ -10,7 +10,15 @@
   </head>
 
   <body>
-    <%= notice %>
-    <%= yield %>
+    <nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+      <div class="container-fluid">
+        <%= link_to 'Blog Posting System', root_path, class: 'navbar-brand' %>
+      </div>
+    </nav>
+
+    <div style="padding: 1rem;">
+      <div><%= notice %></div>
+      <%= yield %>
+    </div>
   </body>
 </html>
