@@ -7,8 +7,7 @@ class PostsController < ApplicationController
   before_action :find_post, only: %i[edit update destroy]
 
   def index
-    # TODO: only show articles post
-    @posts = @board.posts
+    @posts = @board.posts.filter_articles
   end
 
   def new
