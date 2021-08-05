@@ -1,0 +1,21 @@
+<h4 class="title">Create New Board</h4>
+
+<div style="width: 25%; margin: auto;">
+  <%= form_with model: @board, url: boards_path do |form| %>
+
+    <div class="mb-3">
+      <%= form.label :username, 'Owner (username)', class: 'form-label' %>
+      <%= form.text_field :username, class: 'form-control' %>
+      <div class="form-text">NOTICE: owner cannot be modified after board created.</div>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+
+    <%= form.submit 'Create Board', class: 'btn btn-primary' %>
+    <%= link_to 'Back', boards_path, type: 'button', class: 'btn btn-secondary' %>
+
+  <% end %>
+<div>
