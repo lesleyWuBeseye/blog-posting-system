@@ -29,8 +29,8 @@ class UsersController < ApplicationController
     if @user.update(user_params)
       redirect_to users_path, notice: 'User successfully updated'
     else
-      # TODO: handle error message flash
-      render :edit
+      flash[:errors] = @user.errors.full_messages
+      redirect_to edit_user_path
     end
   end
 
