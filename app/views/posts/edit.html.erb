@@ -1,0 +1,27 @@
+<h4 class="title">Edit Post</h4>
+
+<%= render 'shared/errors' %>
+
+<div style="width: 25%; margin: auto;">
+  <%= form_with model: @post, url: post_path do |form| %>
+
+    <div class="mb-3">
+      <%= form.label :board, 'Board: ', class: 'form-label' %>
+      <%= @post.board.name %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :author, 'Author: ', class: 'form-label' %>
+      <%= @post.user.username %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :content, class: 'form-label' %>
+      <%= form.text_area :content, class: 'form-control textarea' %>
+    </div>
+
+    <%= form.submit 'Update', class: 'btn btn-primary' %>
+    <%= link_to 'Back', board_posts_path(@post.board), type: 'button', class: 'btn btn-secondary' %>
+
+  <% end %>
+<div>
