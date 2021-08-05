@@ -18,8 +18,8 @@ class UsersController < ApplicationController
     if @user.save
       redirect_to users_path, notice: 'User successfully created'
     else
-      # TODO: handle error message flash
-      render :new
+      flash[:errors] = @user.errors.full_messages
+      redirect_to new_user_path
     end
   end
 

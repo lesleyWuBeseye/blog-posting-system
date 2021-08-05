@@ -1,5 +1,13 @@
 <h4 class="title">Create New User</h4>
 
+<% if flash[:errors] %>
+  <ul>
+  <% flash[:errors].each do |error| %>
+    <li class="error"><%= error %></li>
+  <% end %>
+  <ul>
+<% end %>
+
 <div style="width: 25%; margin: auto;">
   <%= form_with model: @user, url: users_path do |form| %>
 
