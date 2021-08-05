@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  has_many :boards, dependent: :destroy
+
   validates :username, :email, presence: true
   validates :username, :email, uniqueness: true
   validates :username, length: { minimum: 8 }
