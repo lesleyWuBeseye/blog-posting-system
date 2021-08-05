@@ -2,6 +2,7 @@
 
 class User < ApplicationRecord
   has_many :boards, dependent: :destroy
+  has_many :posts
 
   validates :username, :email, presence: true
   validates :username, :email, uniqueness: true
