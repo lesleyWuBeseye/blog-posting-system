@@ -2,7 +2,7 @@
 
 # Controll users action
 class UsersController < ApplicationController
-  before_action :find_user, only: %i[edit update destroy boards]
+  before_action :find_user, only: %i[edit update destroy boards articles]
 
   def index
     @users = User.all.order(:created_at)
@@ -41,6 +41,10 @@ class UsersController < ApplicationController
 
   def boards
     @boards = @user.boards
+  end
+
+  def articles
+    @posts = @user.posts.filter_articles
   end
 
   private

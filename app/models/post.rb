@@ -7,4 +7,6 @@ class Post < ApplicationRecord
   belongs_to :article, class_name: 'Post', optional: true
 
   validates :content, presence: true
+
+  scope :filter_articles, -> { where(article_id: nil) }
 end

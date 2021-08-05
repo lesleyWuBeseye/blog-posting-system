@@ -8,7 +8,7 @@
       <th scope="col">Username</th>
       <th scope="col">Email</th>
       <th scope="col">Manage User</th>
-      <th scope="col">Manage Board</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -23,7 +23,8 @@
               type: 'button', class: 'btn btn-secondary create-btn' %>
       </td>
       <td>
-        <%= link_to 'Show All Boards', boards_user_path(user), type: 'button', class: 'btn btn-primary create-btn' %>
+        <%= link_to 'All Boards', boards_user_path(user), type: 'button', class: 'btn btn-primary create-btn' %>
+        <%= link_to 'All Articles', articles_user_path(user), type: 'button', class: 'btn btn-primary create-btn' %>
       </td>
     </tr>
     <% end %>
