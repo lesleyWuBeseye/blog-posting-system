@@ -1,0 +1,28 @@
+<h4 class="title">Create New Article</h4>
+
+<%= render 'shared/errors' %>
+
+<div style="width: 25%; margin: auto;">
+  <%= form_with model: @post, url: board_posts_path do |form| %>
+
+    <div class="mb-3">
+      <%= form.label :board, 'Board: ', class: 'form-label' %>
+      <%= @board.name %>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :author, 'Author (username)', class: 'form-label' %>
+      <%= form.text_field :author, class: 'form-control' %>
+      <div class="form-text">NOTICE: author cannot be modified after board created.</div>
+    </div>
+
+    <div class="mb-3">
+      <%= form.label :content, class: 'form-label' %>
+      <%= form.text_area :content, class: 'form-control textarea' %>
+    </div>
+
+    <%= form.submit 'Create Post', class: 'btn btn-primary' %>
+    <%= link_to 'Back', boards_path, type: 'button', class: 'btn btn-secondary' %>
+
+  <% end %>
+<div>

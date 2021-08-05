@@ -7,7 +7,8 @@
     <tr>
       <th scope="col">Board Name</th>
       <th scope="col">Owner (username)</th>
-      <th scope="col"></th>
+      <th scope="col">Manage Board</th>
+      <th scope="col">Manage Article</th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +21,9 @@
         <%= link_to 'Delete', board_path(board),
               data: {confirm: "Are you sure to delete #{board.name}?"}, method: :delete,
               type: 'button', class: 'btn btn-secondary create-btn' %>
+      </td>
+      <td>
+        <%= link_to 'Add Article', new_board_post_path(board), type: 'button', class: 'btn btn-primary create-btn' %>
       </td>
     </tr>
     <% end %>
