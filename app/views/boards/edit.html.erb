@@ -1,0 +1,15 @@
+<h4 class="title">Edit <%= @board.name %></h4>
+
+<div style="width: 25%; margin: auto;">
+  <%= form_with model: @board, url: board_path do |form| %>
+
+    <div class="mb-3">
+      <%= form.label :name, class: 'form-label' %>
+      <%= form.text_field :name, class: 'form-control' %>
+    </div>
+
+    <%= form.submit 'Update', class: 'btn btn-primary' %>
+    <%= link_to 'Back', boards_path, type: 'button', class: 'btn btn-secondary' %>
+
+  <% end %>
+<div>
