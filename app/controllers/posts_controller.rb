@@ -4,7 +4,7 @@
 class PostsController < ApplicationController
   before_action :find_board
   before_action :find_user, only: %i[create]
-  before_action :find_post, only: %i[edit update]
+  before_action :find_post, only: %i[edit update destroy]
 
   def index
     # TODO: only show articles post
@@ -35,6 +35,11 @@ class PostsController < ApplicationController
       flash[:errors] = @user.errors.full_messages
       redirect_to edit_post_path
     end
+  end
+
+  def destroy
+    @post.destroy if @post.present?
+    redirect_to board_posts_path(@post.board), notice: 'Post successfully deleted'
   end
 
   private

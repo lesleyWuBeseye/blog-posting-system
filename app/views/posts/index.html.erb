@@ -12,6 +12,9 @@
         <div class="card-body">
           <p class="card-text"><%= truncate(post.content, length: 60) %></p>
           <%= link_to 'Edit', edit_post_path(post), type: 'button', class: 'btn btn-primary create-btn' %>
+          <%= link_to 'Delete', post_path(post),
+              data: {confirm: "Are you sure to delete this post?"}, method: :delete,
+              type: 'button', class: 'btn btn-secondary create-btn' %>
         </div>
         <div class="card-footer text-muted">
           <%# TODO: Add replies %>
