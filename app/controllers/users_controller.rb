@@ -2,8 +2,10 @@
 
 # Controll users action
 class UsersController < ApplicationController
+  before_action :find_user, only: %i[edit update]
+
   def index
-    @users = User.all
+    @users = User.all.order(:created_at)
   end
 
   def new
@@ -21,7 +23,22 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit; end
+
+  def update
+    if @user.update(user_params)
+      redirect_to users_path, notice: 'User successfully updated'
+    else
+      # TODO: handle error message flash
+      render :edit
+    end
+  end
+
   private
+
+  def find_user
+    @user = User.find_by(id: params[:id])
+  end
 
   def user_params
     params.require(:user).permit(:username, :email)
