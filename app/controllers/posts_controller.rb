@@ -5,6 +5,10 @@ class PostsController < ApplicationController
   before_action :find_board
   before_action :find_user, only: %i[create]
 
+  def index
+    @posts = @board.posts
+  end
+
   def new
     @post = Post.new
   end

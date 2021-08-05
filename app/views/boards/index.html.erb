@@ -24,6 +24,7 @@
       </td>
       <td>
         <%= link_to 'Add Article', new_board_post_path(board), type: 'button', class: 'btn btn-primary create-btn' %>
+        <%= link_to 'Show All Article', board_posts_path(board), type: 'button', class: 'btn btn-primary create-btn' %>
       </td>
     </tr>
     <% end %>
