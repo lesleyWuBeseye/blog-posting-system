@@ -6,6 +6,7 @@ class PostsController < ApplicationController
   before_action :find_user, only: %i[create]
 
   def index
+    # TODO: only show articles post
     @posts = @board.posts
   end
 
@@ -17,7 +18,7 @@ class PostsController < ApplicationController
     @post = @board.posts.new(post_params.merge(user_id: @user.id))
 
     if @post.save
-      redirect_to boards_path, notice: 'Article successfully created'
+      redirect_to board_posts_path(@board), notice: 'Article successfully created'
     else
       flash[:errors] = @post.errors.full_messages
       redirect_to new_board_post_path

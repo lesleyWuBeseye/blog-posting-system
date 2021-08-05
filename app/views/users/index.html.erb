@@ -7,7 +7,8 @@
     <tr>
       <th scope="col">Username</th>
       <th scope="col">Email</th>
-      <th scope="col"></th>
+      <th scope="col">Manage User</th>
+      <th scope="col">Manage Board</th>
     </tr>
   </thead>
   <tbody>
@@ -20,6 +21,9 @@
         <%= link_to 'Delete', user_path(user),
               data: {confirm: "Are you sure to delete #{user.username}?"}, method: :delete,
               type: 'button', class: 'btn btn-secondary create-btn' %>
+      </td>
+      <td>
+        <%= link_to 'Show All Boards', boards_user_path(user), type: 'button', class: 'btn btn-primary create-btn' %>
       </td>
     </tr>
     <% end %>

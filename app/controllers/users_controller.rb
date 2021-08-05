@@ -2,7 +2,7 @@
 
 # Controll users action
 class UsersController < ApplicationController
-  before_action :find_user, only: %i[edit update destroy]
+  before_action :find_user, only: %i[edit update destroy boards]
 
   def index
     @users = User.all.order(:created_at)
@@ -37,6 +37,10 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy if @user.present?
     redirect_to users_path, notice: 'User successfully deleted'
+  end
+
+  def boards
+    @boards = @user.boards
   end
 
   private
