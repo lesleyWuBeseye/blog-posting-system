@@ -1,5 +1,7 @@
 <h4 class="title">Edit <%= @board.name %></h4>
 
+<%= render 'shared/errors' %>
+
 <div style="width: 25%; margin: auto;">
   <%= form_with model: @board, url: board_path do |form| %>
 

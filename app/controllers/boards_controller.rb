@@ -19,8 +19,8 @@ class BoardsController < ApplicationController
     if @board.save
       redirect_to boards_path, notice: 'Board successfully created'
     else
-      # TODO: handle error message flash
-      render :new
+      flash[:errors] = @board.errors.full_messages
+      redirect_to new_board_path
     end
   end
 
@@ -30,8 +30,8 @@ class BoardsController < ApplicationController
     if @board.update(board_params)
       redirect_to boards_path, notice: 'Board successfully updated'
     else
-      # TODO: handle error message flash
-      render :edit
+      flash[:errors] = @board.errors.full_messages
+      redirect_to edit_board_path
     end
   end
 

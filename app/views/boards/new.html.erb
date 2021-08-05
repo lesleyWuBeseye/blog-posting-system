@@ -1,5 +1,7 @@
 <h4 class="title">Create New Board</h4>
 
+<%= render 'shared/errors' %>
+
 <div style="width: 25%; margin: auto;">
   <%= form_with model: @board, url: boards_path do |form| %>
 
