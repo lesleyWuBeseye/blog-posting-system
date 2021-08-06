@@ -9,4 +9,5 @@ class Post < ApplicationRecord
   validates :content, presence: true
 
   scope :filter_articles, -> { where(article_id: nil) }
+  scope :filter_replies, -> { where.not(article_id: nil) }
 end

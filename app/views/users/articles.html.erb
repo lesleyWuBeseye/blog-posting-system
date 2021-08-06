@@ -2,18 +2,4 @@
 
 <%= link_to 'Back', users_path, type: 'button', class: 'btn btn-secondary create-btn' %>
 
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <% @posts.each do |post| %>
-    <div class="col">
-      <div class="card text-center">
-        <div class="card-header">
-          @<%= @user.username %>
-        </div>
-        <div class="card-body">
-          <p class="card-text"><%= truncate(post.content, length: 60) %></p>
-          <%= link_to 'Edit', edit_post_path(post), type: 'button', class: 'btn btn-primary create-btn' %>
-        </div>
-      </div>
-    </div>
-  <% end %>
-</div>
+<%= render 'posts' %>
