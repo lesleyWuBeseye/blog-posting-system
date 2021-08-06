@@ -14,12 +14,12 @@ class BoardsController < ApplicationController
   end
 
   def create
-    @board = @user.boards.new(board_params)
+    form = CreateBoardForm.new(owner: @user, name: board_params[:name])
 
-    if @board.save
+    if form.save
       redirect_to boards_path, notice: 'Board successfully created'
     else
-      flash[:errors] = @board.errors.full_messages
+      flash[:errors] = form.errors.full_messages
       redirect_to new_board_path
     end
   end
