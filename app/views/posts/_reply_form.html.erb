@@ -1,0 +1,27 @@
+<div class="card ml-5">
+  <div class="card-body">
+    <%= form_with(model: [@board, @post]) do |f| %>
+      <%= f.hidden_field :article_id %>
+
+      <div class="form-group">
+        <div class="mb-3">
+          <%= f.label :reply %>
+        </div>
+
+        <div class="mb-3">
+          <%= f.label :author, 'Author (username)', class: 'form-label' %>
+          <%= f.text_field :author, class: 'form-control' %>
+          <div class="form-text">NOTICE: author cannot be modified after board created.</div>
+        </div>
+
+        <div class="mb-3">
+          <%= f.label :content, class: 'form-label' %>
+          <%= f.text_area :content, class: 'form-control' %>
+        </div>
+      </div>
+
+      <%= f.submit 'Submit', class: 'btn btn-primary' %>
+      <%= link_to 'Cancel', board_posts_path(@board), class: 'btn btn-secondary' %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-body">
+    <%= reply.content %>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+      <%= link_to 'Edit', edit_post_path(reply) %>
+      <%= link_to 'Delete', post_path(reply),
+            data: {confirm: "Are you sure to delete this post?"}, method: :delete, style: 'color: grey;' %>
+      <%= link_to 'Reply', new_board_post_path(reply.board, article_id: reply.id), remote: true %>
+    </div>
+  </div>
+</div>
+
+<%# show replies of reply %>
+<% if reply.replies.any? %>
+  <% reply.replies.each do |reply| %>
+    <div style="margin-left: 3rem;">
+      <%= render partial: 'posts/reply', locals: { reply: reply } %>
+    </div>
+  <% end %>
+<% end %>
+
+<%# show reply form of reply %>
+<div id="reply-form-<%= reply.id %>"></div>

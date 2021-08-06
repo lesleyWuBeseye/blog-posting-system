@@ -13,14 +13,21 @@
           <p class="card-text"><%= truncate(post.content, length: 60) %></p>
           <%= link_to 'Edit', edit_post_path(post), type: 'button', class: 'btn btn-primary create-btn' %>
           <%= link_to 'Delete', post_path(post),
-              data: {confirm: "Are you sure to delete this post?"}, method: :delete,
-              type: 'button', class: 'btn btn-secondary create-btn' %>
-        </div>
-        <div class="card-footer text-muted">
-          <%# TODO: Add replies %>
-          replies...
+                data: {confirm: "Are you sure to delete this post?"}, method: :delete,
+                type: 'button', class: 'btn btn-secondary create-btn' %>
+          <%= link_to 'Reply', new_board_post_path(post.board, article_id: post.id), remote: true, type: 'button', class: 'btn btn-outline-primary' %>
         </div>
       </div>
+
+      <%# show replies of article %>
+      <% if post.replies.any? %>
+        <% post.replies.each do |reply| %> 
+          <%= render partial: 'posts/reply', locals: { reply: reply } %>
+        <% end %>
+      <% end %>
+
+      <%# show reply form of article %>
+      <div id="reply-form-<%= post.id %>"></div>
     </div>
   <% end %>
 </div>
