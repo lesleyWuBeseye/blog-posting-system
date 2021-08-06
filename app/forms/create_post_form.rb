@@ -18,7 +18,7 @@ class CreatePostForm
   def save
     return false unless valid?
 
-    board.posts.create(user_id: author, content: content, article_id: article_id)
+    board.posts.create(user_id: author.id, content: content, article_id: article_id)
   end
 
   private

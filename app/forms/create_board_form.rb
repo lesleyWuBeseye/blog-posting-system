@@ -5,8 +5,8 @@ class CreateBoardForm
   include ActiveModel::Validations
   attr_reader :owner, :name
 
-  validates :name, presence: true
-  validate :verify_owner
+  validates_presence_of :name
+  validate :verify_owner, :verify_name
 
   def initialize(owner:, name:)
     @owner = owner
@@ -16,7 +16,11 @@ class CreateBoardForm
   def save
     return false unless valid?
 
-    user.boards.create(name: name)
+    owner.boards.create(name: name)
+  end
+
+  def board
+    @board ||= Board.find_by(name: name)
   end
 
   private
@@ -25,5 +29,11 @@ class CreateBoardForm
     return if owner.present?
 
     errors.add(:board, 'owner is invalid')
+  end
+
+  def verify_name
+    return unless board.present?
+
+    errors.add(:board, 'name is exist')
   end
 end
