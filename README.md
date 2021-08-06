@@ -1,6 +1,11 @@
 # Blog Posting System 📝
 
 This is the blog posting system, which is Beseye AI Cloud team training.
+Look spec [here](doc/rails_exam_spec.md).
+
+### ERD
+
+[ERB](doc/blog-posting-system-erd.jpg)
 
 ## Setup
 
