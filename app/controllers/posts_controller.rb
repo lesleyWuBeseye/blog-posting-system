@@ -15,12 +15,15 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = @board.posts.new(post_params.merge(user_id: @user.id))
+    form = CreatePostForm.new(board: @board, author: @user, params: post_params)
 
-    if @post.save
-      redirect_to board_posts_path(@board), notice: 'Article successfully created'
+    if form.save
+      redirect_to board_posts_path(@board), notice: 'Post successfully created'
+    elsif form.article_id.present?
+      flash[:errors] = form.errors.full_messages
+      redirect_to board_posts_path(@board)
     else
-      flash[:errors] = @post.errors.full_messages
+      flash[:errors] = form.errors.full_messages
       redirect_to new_board_post_path
     end
   end
