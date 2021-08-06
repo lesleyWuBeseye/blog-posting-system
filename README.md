@@ -5,7 +5,7 @@ Look spec [here](doc/rails_exam_spec.md).
 
 ### ERD
 
-[ERB](doc/blog-posting-system-erd.jpg)
+![ERD](doc/blog-posting-system-erd.jpg)
 
 ## Setup
 
