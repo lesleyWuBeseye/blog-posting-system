@@ -111,10 +111,13 @@ GEM
     nio4r (2.5.7)
     nokogiri (1.11.7-x86_64-darwin)
       racc (~> 1.4)
+    nokogiri (1.11.7-x86_64-linux)
+      racc (~> 1.4)
     pg (1.2.3)
     popper_js (2.9.2)
     public_suffix (4.0.6)
-    puma (3.12.6)
+    puma (4.3.8)
+      nio4r (~> 2.0)
     racc (1.5.2)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -210,6 +213,7 @@ GEM
 
 PLATFORMS
   x86_64-darwin-20
+  x86_64-linux
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
@@ -224,7 +228,7 @@ DEPENDENCIES
   libv8 (~> 3.16.14.15)
   listen (>= 3.0.5, < 3.2)
   pg (~> 1.2, >= 1.2.3)
-  puma (~> 3.11)
+  puma (~> 4.3)
   rails (~> 5.2.6)
   sass-rails (~> 5.0)
   selenium-webdriver
